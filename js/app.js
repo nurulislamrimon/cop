@@ -1,3 +1,4 @@
+
 const members = [
     { name: "Nurul Islam Rimon", mNo: 01, img: "images/001.jpg", mobile: +8801715494846, father: "Noor Nobi" },
     { name: "Shannto", mNo: 02, img: "images/002.jpg", mobile: +8808477488 },
@@ -49,7 +50,8 @@ const showMember = members => {
     const memberSection = document.querySelector(".members-container");
     members.forEach(member => {
         const div = document.createElement("div");
-        div.classList.add("member")
+        div.classList.add("member");
+        div.setAttribute("id", `member${member.mNo}`)
         div.innerHTML = `
     <img src="${member.img}" height="250" width="230" alt="">
     <article>
