@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+}
+:root{
+    --primary-color: black;
+    --secondary-color: gray;
+    --text-primary:rgb(255, 255, 255);
+    --text-secondary: gray;
+    --menu-hover-bg:rgb(49, 38, 38);
+    --gradient-1:rgb(4, 0, 255);
+    --gradient-2:rgb(255, 0, 0);
+    --transparent-bg:rgba(243, 226, 226, 0.041);
+}
+/* =================common classes */
+.flex{
+    display: flex;
+}
+.align-center{
+    display: flex;
+    align-items: center;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: var(--text-primary);
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+/* ===========header=========== */
+header{
+    background-color: var(--transparent-bg);
+    backdrop-filter: blur(50%);
+}
+.logo-container{
+    height: fit-content;
+}
+header span{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 3rem;
+    letter-spacing: .3rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+header img{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: .3rem;
+    animation: rotate 5s infinite ease;
+    border: .2rem solid var(--text-primary);
+    background-color: var(--text-primary);
+    border-radius: 50%;
+    position: relative;
+    animation: logo 2s 4s;
+}
+/* ==========main============= */
+/* main menu bar */
+main{
+    display: grid;
+    grid-template-columns: 210px 220px auto;
+}
+nav{
+    height: 88.5vh;
+    background-color: var(--transparent-bg);
+    backdrop-filter: blur(50%);
+}
+nav ol li{
+    list-style: none;
+    transition: .5s;
+}
+nav ol li a{
+    font-size: 1.3rem;
+    display: block;
+    padding: 20px 0;
+    padding-left: 5px;
+    font-weight: 700;
+}
+nav ol li:hover{
+    background-color: var(--menu-hover-bg);
+    border-left: 5px solid var(--text-primary);
+}
+nav ol li:active{
+    background-color: var(--menu-hover-bg);
+    border-left: 5px solid var(--primary-color);
+}
+nav ol li a span{
+    margin-right: 5px;
+}
+/* sub menu bar */
+aside{
+    padding-top: 10px;
+    height: 88.5vh;
+    overflow-y: scroll;
+    background-color: var(--transparent-bg);
+    backdrop-filter: blur(50%);
+}
+aside h3{
+    color: var(--text-primary);
+    text-align: center;
+}
+aside .member{
+    padding: 5px 0 5px 10px;
+    font-size: 1.2rem;
+}
+
+/* ==========main section========= */
+.main-section{
+    height: 88.5vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.main-section .greeting-text{
+    height: 88.5vh;
+    font-size: 10rem;
+    text-align: center;
+    line-height: 88.5vh;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(var(--gradient-1), var(--gradient-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: greeting 2s ease-in-out;
+}
+.main-section .greeting-text span{
+    border-radius: 50%;
+    animation: dribbling 2s 2s ease-in-out;
+    display: inline-block;
+    background: -webkit-linear-gradient(var(--gradient-1), var(--gradient-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============foooter========= */
+footer{
+    background-color: var(--transparent-bg);
+    backdrop-filter: blur(50%);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+
+
+/* ===================animations============== */
+@keyframes logo {
+    from{transform: translateX(100vw);}
+    to{transform: translateX(0);}
+}
+@keyframes rotate {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+@keyframes greeting {
+    from{transform:scale(90);}
+    to{transform: scale(0);}
+}
+@keyframes dribbling {
+    0%{transform: translateY(-100px);}
+    25%{transform: translateY(100px);}
+    50%{transform: translateY(-50px);}
+    70%{transform: translateY(0);}
+    85%{transform: translateY(-50px);}
+    100%{transform: translate(0);}
+}
