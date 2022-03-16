@@ -19,6 +19,9 @@ html{
     --table-even-row:rgb(17, 16, 16);
 }
 /* =================common classes */
+.display{
+    display: block;
+}
 .flex{
     display: flex;
 }
@@ -40,7 +43,7 @@ a{
 }
 body{
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     background-color: var(--primary-color);
     color: var(--text-primary);
@@ -49,6 +52,8 @@ body{
 header{
     background-color: var(--transparent-bg);
     backdrop-filter: blur(50%);
+    height: 8vh;
+    margin-top: 10px;
 }
 .logo-container{
     height: fit-content;
@@ -71,18 +76,34 @@ header img{
     position: relative;
     animation: logo 2s 4s;
 }
+.hamburger{
+    display: none;
+}
+.hamburger div{
+    background-color: white;
+    height: 2px;
+    margin: 2px 0;
+    width: 20px;
+}
+.hamburger div:nth-child(2){
+    background-color: white;
+    height: 2px;
+    margin: 2px 0;
+    width: 10px;
+}
 /* ==========main============= */
 /* main menu bar */
 main{
     display: grid;
     grid-template-columns: 210px 220px auto;
+    height: 88.5vh;
 }
 nav{
-    height: 88.5vh;
     background-color: var(--transparent-bg);
     backdrop-filter: blur(50%);
 }
 nav ol li{
+    height: 100%;
     list-style: none;
     transition: .5s;
 }
@@ -107,7 +128,7 @@ nav ol li a span{
 /* sub menu bar */
 aside{
     padding-top: 10px;
-    height: 88.5vh;
+    height: 100%;
     overflow-y: scroll;
     background-color: var(--transparent-bg);
     backdrop-filter: blur(50%);
@@ -133,14 +154,14 @@ aside .member:hover{
     background-color: var(--menu-hover-bg);
 }
 
-/* ==========main section========= */
+/* -----------main section-------- */
 .main-section{
-    height: 88.5vh;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 .main-section .greeting-text{
-    height: 88.5vh;
+    height: 100%;
     font-size: 10rem;
     text-align: center;
     line-height: 88.5vh;
@@ -178,6 +199,7 @@ aside .member:hover{
     color: var(--text-secondary
     );
     font-family: 'Nanum Gothic', sans-serif;
+    cursor: pointer;
 }
 .members-container .member img, .committee-container .member img, .directors-container .member img{
     border-top-left-radius: 30px;
@@ -208,6 +230,9 @@ aside .member:hover{
 .finance-container table tbody{
     color: var(--text-primary);
 }
+.finance-container table tr{
+    cursor: pointer;
+}
 .finance-container table tr:nth-child(even){
     background-color: var(--table-even-row);
 }
@@ -221,6 +246,8 @@ aside .member:hover{
 
 /* ============foooter========= */
 footer{
+    height: 4vh;
+    line-height: 4vh;
     background-color: var(--transparent-bg);
     backdrop-filter: blur(50%);
     color: var(--text-primary);
@@ -229,7 +256,70 @@ footer{
 
 
 
-
+/* ============tab version=========== */
+@media screen and (max-width:1020px) {
+/* main menu bar */
+main{
+    grid-template-columns:220px auto;
+}
+aside{
+    display: none;
+}
+/* -----------main section-------- */
+.main-section{
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.main-section .greeting-text{
+    font-size: 5rem;
+}
+}
+/* ============mobile version=========== */
+@media screen and (max-width:720px) {
+html{
+        font-size: 10px;
+    }
+/* header section */
+header{
+    height: 4vh;
+    justify-content: space-around;
+}
+header span{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+header img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.hamburger{
+    display: block;
+}
+/* main menu bar */
+main{
+    grid-template-columns: auto;
+}
+nav{
+    display: none;
+}
+aside{
+    display: none;
+}
+/* -----------main section-------- */
+.main-section{
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.main-section .greeting-text{
+    font-size: 4rem;
+}
+/* members and others section */
+.members-container .member, .committee-container .member, .directors-container .member{
+    margin: 0 auto;
+}
+}
 
 
 

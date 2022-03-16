@@ -49,7 +49,7 @@ const addSubmenu = members => {
     const membersContainer = document.querySelector("aside");
     members.forEach(member => {
         const memberContainer = document.createElement("div");
-        memberContainer.classList.add("member")
+        memberContainer.classList.add("member");
         memberContainer.innerHTML = `
         <a  href="#member${member.mNo}">
         <p><span>${member.mNo}. </span>${member.name}</p>
@@ -62,17 +62,18 @@ addSubmenu(members);
 const showMember = members => {
     const memberSection = document.querySelector(".members-container");
     members.forEach(member => {
-        const div = document.createElement("div");
-        div.classList.add("member");
-        div.setAttribute("id", `member${member.mNo}`)
-        div.innerHTML = `
+        const container = document.createElement("a");
+        container.classList.add("member");
+        container.setAttribute("id", `member${member.mNo}`);
+        container.setAttribute("href", `#balance-of-member${member.mNo}`);
+        container.innerHTML = `
     <img src="${member.img}" height="250" width="230" alt="">
     <article>
         <h2>${member.mNo}. ${member.name}</h2>
         <h3>Father: ${member.father}</h3>
         <p>Mobile: <a href="tel:${member.mobile}">${member.mobile}</a></p>
     </article>`
-        memberSection.appendChild(div)
+        memberSection.appendChild(container)
     })
 }
 showMember(members);
@@ -100,6 +101,8 @@ const financeTable = members => {
     const financeTbody = document.getElementById("finance-tbody");
     members.forEach(member => {
         const row = document.createElement("tr");
+        row.setAttribute("id", `balance-of-member${member.mNo}`);
+        row.setAttribute("href", `#member${member.mNo}`);
         row.innerHTML = `
         <td>${member.mNo}.</td>
         <td>${member.name}</td>
@@ -133,6 +136,10 @@ const showDirectors = members => {
 }
 showDirectors(directors);
 
+// hamburger menu
+document.querySelector(".hamburger").addEventListener("click", () => {
+    document.querySelector("nav").classList.toggle("display");
+})
 // active menu
 document.querySelector("nav").addEventListener("click", event => {
     const mainMenu = document.getElementsByClassName("main-menu");
