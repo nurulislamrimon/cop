@@ -21,6 +21,7 @@ html{
 /* =================common classes */
 .display{
     display: block;
+    height: 90vh;
 }
 .flex{
     display: flex;
@@ -52,7 +53,6 @@ body{
 header{
     background-color: var(--transparent-bg);
     backdrop-filter: blur(50%);
-    height: 8vh;
     margin-top: 10px;
 }
 .logo-container{
@@ -84,6 +84,7 @@ header img{
     height: 2px;
     margin: 2px 0;
     width: 20px;
+    transition: all 2s;
 }
 .hamburger div:nth-child(2){
     background-color: white;
@@ -91,12 +92,27 @@ header img{
     margin: 2px 0;
     width: 10px;
 }
+.closeBtn{
+}
+.closeBtn div:nth-child(2){
+    display: none;
+}
+.closeBtn div:first-child{
+    position: absolute;
+    top: 20;
+    transform: rotate(45deg);
+    transition: all 2s;
+}
+.closeBtn div:last-child{
+    transform: rotate(135deg);
+    transition: all 2s;
+}
 /* ==========main============= */
 /* main menu bar */
 main{
     display: grid;
     grid-template-columns: 210px 220px auto;
-    height: 88.5vh;
+    height: 85.5vh;
 }
 nav{
     background-color: var(--transparent-bg);
@@ -230,9 +246,6 @@ aside .member:hover{
 .finance-container table tbody{
     color: var(--text-primary);
 }
-.finance-container table tr{
-    cursor: pointer;
-}
 .finance-container table tr:nth-child(even){
     background-color: var(--table-even-row);
 }
@@ -284,6 +297,7 @@ html{
 header{
     height: 4vh;
     justify-content: space-around;
+    align-items: center;
 }
 header span{
     font-size: 1.5rem;

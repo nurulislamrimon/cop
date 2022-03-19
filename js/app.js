@@ -139,6 +139,7 @@ showDirectors(directors);
 // hamburger menu
 document.querySelector(".hamburger").addEventListener("click", () => {
     document.querySelector("nav").classList.toggle("display");
+    document.querySelector(".hamburger").classList.toggle("closeBtn");
 })
 // active menu
 document.querySelector("nav").addEventListener("click", event => {
